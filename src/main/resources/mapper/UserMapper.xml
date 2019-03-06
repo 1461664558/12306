@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.company.dao.pojo.User" >
+    <constructor >
+      <idArg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="uidnumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sex" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="birthday" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lastlandingtime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="ustatus" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="creatTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="updataTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="creatUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="updataUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deleteTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="con1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con4" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con5" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userid, username, password, name, uidnumber, sex, birthday, address, tel, email, 
+    lastlandingtime, ustatus, creatTime, updataTime, creatUser, updataUser, deleteTime, 
+    con1, con2, con3, con4, con5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where userid = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where userid = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.company.dao.pojo.User" >
+    insert into user (userid, username, password, 
+      name, uidnumber, sex, 
+      birthday, address, tel, 
+      email, lastlandingtime, ustatus, 
+      creatTime, updataTime, creatUser, 
+      updataUser, deleteTime, con1, 
+      con2, con3, con4, con5
+      )
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{uidnumber,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{address,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{lastlandingtime,jdbcType=TIMESTAMP}, #{ustatus,jdbcType=VARCHAR}, 
+      #{creattime,jdbcType=TIMESTAMP}, #{updatatime,jdbcType=TIMESTAMP}, #{creatuser,jdbcType=VARCHAR}, 
+      #{updatauser,jdbcType=VARCHAR}, #{deletetime,jdbcType=TIMESTAMP}, #{con1,jdbcType=VARCHAR}, 
+      #{con2,jdbcType=VARCHAR}, #{con3,jdbcType=VARCHAR}, #{con4,jdbcType=VARCHAR}, #{con5,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.company.dao.pojo.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="uidnumber != null" >
+        uidnumber,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="lastlandingtime != null" >
+        lastlandingtime,
+      </if>
+      <if test="ustatus != null" >
+        ustatus,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="updatatime != null" >
+        updataTime,
+      </if>
+      <if test="creatuser != null" >
+        creatUser,
+      </if>
+      <if test="updatauser != null" >
+        updataUser,
+      </if>
+      <if test="deletetime != null" >
+        deleteTime,
+      </if>
+      <if test="con1 != null" >
+        con1,
+      </if>
+      <if test="con2 != null" >
+        con2,
+      </if>
+      <if test="con3 != null" >
+        con3,
+      </if>
+      <if test="con4 != null" >
+        con4,
+      </if>
+      <if test="con5 != null" >
+        con5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="uidnumber != null" >
+        #{uidnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlandingtime != null" >
+        #{lastlandingtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ustatus != null" >
+        #{ustatus,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        #{con5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.User" >
+    update user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="uidnumber != null" >
+        uidnumber = #{uidnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlandingtime != null" >
+        lastlandingtime = #{lastlandingtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ustatus != null" >
+        ustatus = #{ustatus,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        updataTime = #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        creatUser = #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        updataUser = #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        con1 = #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        con2 = #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        con3 = #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        con4 = #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        con5 = #{con5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.User" >
+    update user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      uidnumber = #{uidnumber,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      address = #{address,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      lastlandingtime = #{lastlandingtime,jdbcType=TIMESTAMP},
+      ustatus = #{ustatus,jdbcType=VARCHAR},
+      creatTime = #{creattime,jdbcType=TIMESTAMP},
+      updataTime = #{updatatime,jdbcType=TIMESTAMP},
+      creatUser = #{creatuser,jdbcType=VARCHAR},
+      updataUser = #{updatauser,jdbcType=VARCHAR},
+      deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      con1 = #{con1,jdbcType=VARCHAR},
+      con2 = #{con2,jdbcType=VARCHAR},
+      con3 = #{con3,jdbcType=VARCHAR},
+      con4 = #{con4,jdbcType=VARCHAR},
+      con5 = #{con5,jdbcType=VARCHAR}
+    where userid = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>

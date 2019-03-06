@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.SeatMapper" >
+  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Seat" >
+    <constructor >
+      <arg column="route" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="tid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="gnumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="gtype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="seatnumberY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="seatnumberx" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="seatstatus" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="seatstatuscode" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="starttime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="creatTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="updataTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="creatUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="updataUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deleteTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="con1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con4" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con5" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.company.dao.pojo.Seat" >
+    insert into seat (route, tid, gnumber, 
+      gtype, seatnumberY, seatnumberx, 
+      seatstatus, seatstatuscode, starttime, 
+      creatTime, updataTime, creatUser, 
+      updataUser, deleteTime, con1, 
+      con2, con3, con4, con5
+      )
+    values (#{route,jdbcType=INTEGER}, #{tid,jdbcType=VARCHAR}, #{gnumber,jdbcType=VARCHAR}, 
+      #{gtype,jdbcType=VARCHAR}, #{seatnumbery,jdbcType=VARCHAR}, #{seatnumberx,jdbcType=VARCHAR}, 
+      #{seatstatus,jdbcType=VARCHAR}, #{seatstatuscode,jdbcType=VARCHAR}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{creattime,jdbcType=TIMESTAMP}, #{updatatime,jdbcType=TIMESTAMP}, #{creatuser,jdbcType=VARCHAR}, 
+      #{updatauser,jdbcType=VARCHAR}, #{deletetime,jdbcType=TIMESTAMP}, #{con1,jdbcType=VARCHAR}, 
+      #{con2,jdbcType=VARCHAR}, #{con3,jdbcType=VARCHAR}, #{con4,jdbcType=VARCHAR}, #{con5,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.company.dao.pojo.Seat" >
+    insert into seat
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="route != null" >
+        route,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="gnumber != null" >
+        gnumber,
+      </if>
+      <if test="gtype != null" >
+        gtype,
+      </if>
+      <if test="seatnumbery != null" >
+        seatnumberY,
+      </if>
+      <if test="seatnumberx != null" >
+        seatnumberx,
+      </if>
+      <if test="seatstatus != null" >
+        seatstatus,
+      </if>
+      <if test="seatstatuscode != null" >
+        seatstatuscode,
+      </if>
+      <if test="starttime != null" >
+        starttime,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="updatatime != null" >
+        updataTime,
+      </if>
+      <if test="creatuser != null" >
+        creatUser,
+      </if>
+      <if test="updatauser != null" >
+        updataUser,
+      </if>
+      <if test="deletetime != null" >
+        deleteTime,
+      </if>
+      <if test="con1 != null" >
+        con1,
+      </if>
+      <if test="con2 != null" >
+        con2,
+      </if>
+      <if test="con3 != null" >
+        con3,
+      </if>
+      <if test="con4 != null" >
+        con4,
+      </if>
+      <if test="con5 != null" >
+        con5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="route != null" >
+        #{route,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="gnumber != null" >
+        #{gnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="gtype != null" >
+        #{gtype,jdbcType=VARCHAR},
+      </if>
+      <if test="seatnumbery != null" >
+        #{seatnumbery,jdbcType=VARCHAR},
+      </if>
+      <if test="seatnumberx != null" >
+        #{seatnumberx,jdbcType=VARCHAR},
+      </if>
+      <if test="seatstatus != null" >
+        #{seatstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="seatstatuscode != null" >
+        #{seatstatuscode,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        #{con5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.TrainMapper" >
+  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Train" >
+    <constructor >
+      <idArg column="tid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="route" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="startstation" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="endstation" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="starttime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="endtime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="last" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="noseatnumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mile" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="bodytype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="creatTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="updataTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="creatUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="updataUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deleteTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="con1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con4" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con5" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tid, route, startstation, endstation, starttime, endtime, last, noseatnumber, mile, 
+    bodytype, type, creatTime, updataTime, creatUser, updataUser, deleteTime, con1, con2, 
+    con3, con4, con5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from train
+    where tid = #{tid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from train
+    where tid = #{tid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.company.dao.pojo.Train" >
+    insert into train (tid, route, startstation, 
+      endstation, starttime, endtime, 
+      last, noseatnumber, mile, 
+      bodytype, type, creatTime, 
+      updataTime, creatUser, updataUser, 
+      deleteTime, con1, con2, 
+      con3, con4, con5)
+    values (#{tid,jdbcType=VARCHAR}, #{route,jdbcType=INTEGER}, #{startstation,jdbcType=VARCHAR}, 
+      #{endstation,jdbcType=VARCHAR}, #{starttime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, 
+      #{last,jdbcType=TIMESTAMP}, #{noseatnumber,jdbcType=VARCHAR}, #{mile,jdbcType=DECIMAL}, 
+      #{bodytype,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{creattime,jdbcType=TIMESTAMP}, 
+      #{updatatime,jdbcType=TIMESTAMP}, #{creatuser,jdbcType=VARCHAR}, #{updatauser,jdbcType=VARCHAR}, 
+      #{deletetime,jdbcType=TIMESTAMP}, #{con1,jdbcType=VARCHAR}, #{con2,jdbcType=VARCHAR}, 
+      #{con3,jdbcType=VARCHAR}, #{con4,jdbcType=VARCHAR}, #{con5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.company.dao.pojo.Train" >
+    insert into train
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="route != null" >
+        route,
+      </if>
+      <if test="startstation != null" >
+        startstation,
+      </if>
+      <if test="endstation != null" >
+        endstation,
+      </if>
+      <if test="starttime != null" >
+        starttime,
+      </if>
+      <if test="endtime != null" >
+        endtime,
+      </if>
+      <if test="last != null" >
+        last,
+      </if>
+      <if test="noseatnumber != null" >
+        noseatnumber,
+      </if>
+      <if test="mile != null" >
+        mile,
+      </if>
+      <if test="bodytype != null" >
+        bodytype,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="updatatime != null" >
+        updataTime,
+      </if>
+      <if test="creatuser != null" >
+        creatUser,
+      </if>
+      <if test="updatauser != null" >
+        updataUser,
+      </if>
+      <if test="deletetime != null" >
+        deleteTime,
+      </if>
+      <if test="con1 != null" >
+        con1,
+      </if>
+      <if test="con2 != null" >
+        con2,
+      </if>
+      <if test="con3 != null" >
+        con3,
+      </if>
+      <if test="con4 != null" >
+        con4,
+      </if>
+      <if test="con5 != null" >
+        con5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="route != null" >
+        #{route,jdbcType=INTEGER},
+      </if>
+      <if test="startstation != null" >
+        #{startstation,jdbcType=VARCHAR},
+      </if>
+      <if test="endstation != null" >
+        #{endstation,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="last != null" >
+        #{last,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noseatnumber != null" >
+        #{noseatnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="mile != null" >
+        #{mile,jdbcType=DECIMAL},
+      </if>
+      <if test="bodytype != null" >
+        #{bodytype,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        #{con5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Train" >
+    update train
+    <set >
+      <if test="route != null" >
+        route = #{route,jdbcType=INTEGER},
+      </if>
+      <if test="startstation != null" >
+        startstation = #{startstation,jdbcType=VARCHAR},
+      </if>
+      <if test="endstation != null" >
+        endstation = #{endstation,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        starttime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endtime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="last != null" >
+        last = #{last,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noseatnumber != null" >
+        noseatnumber = #{noseatnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="mile != null" >
+        mile = #{mile,jdbcType=DECIMAL},
+      </if>
+      <if test="bodytype != null" >
+        bodytype = #{bodytype,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        updataTime = #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        creatUser = #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        updataUser = #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        con1 = #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        con2 = #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        con3 = #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        con4 = #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        con5 = #{con5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Train" >
+    update train
+    set route = #{route,jdbcType=INTEGER},
+      startstation = #{startstation,jdbcType=VARCHAR},
+      endstation = #{endstation,jdbcType=VARCHAR},
+      starttime = #{starttime,jdbcType=TIMESTAMP},
+      endtime = #{endtime,jdbcType=TIMESTAMP},
+      last = #{last,jdbcType=TIMESTAMP},
+      noseatnumber = #{noseatnumber,jdbcType=VARCHAR},
+      mile = #{mile,jdbcType=DECIMAL},
+      bodytype = #{bodytype,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      creatTime = #{creattime,jdbcType=TIMESTAMP},
+      updataTime = #{updatatime,jdbcType=TIMESTAMP},
+      creatUser = #{creatuser,jdbcType=VARCHAR},
+      updataUser = #{updatauser,jdbcType=VARCHAR},
+      deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      con1 = #{con1,jdbcType=VARCHAR},
+      con2 = #{con2,jdbcType=VARCHAR},
+      con3 = #{con3,jdbcType=VARCHAR},
+      con4 = #{con4,jdbcType=VARCHAR},
+      con5 = #{con5,jdbcType=VARCHAR}
+    where tid = #{tid,jdbcType=VARCHAR}
+  </update>
+</mapper>

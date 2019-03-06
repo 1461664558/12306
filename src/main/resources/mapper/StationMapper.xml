@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.StationMapper" >
+  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Station" >
+    <constructor >
+      <idArg column="station" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="stationname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pinyin" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="region" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Airconditioning" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="creatTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="updataTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="creatUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="updataUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deleteTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="con1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con4" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con5" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    station, stationname, pinyin, region, Airconditioning, creatTime, updataTime, creatUser, 
+    updataUser, deleteTime, con1, con2, con3, con4, con5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from station
+    where station = #{station,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from station
+    where station = #{station,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.company.dao.pojo.Station" >
+    insert into station (station, stationname, pinyin, 
+      region, Airconditioning, creatTime, 
+      updataTime, creatUser, updataUser, 
+      deleteTime, con1, con2, 
+      con3, con4, con5)
+    values (#{station,jdbcType=INTEGER}, #{stationname,jdbcType=VARCHAR}, #{pinyin,jdbcType=VARCHAR}, 
+      #{region,jdbcType=VARCHAR}, #{airconditioning,jdbcType=VARCHAR}, #{creattime,jdbcType=TIMESTAMP}, 
+      #{updatatime,jdbcType=TIMESTAMP}, #{creatuser,jdbcType=VARCHAR}, #{updatauser,jdbcType=VARCHAR}, 
+      #{deletetime,jdbcType=TIMESTAMP}, #{con1,jdbcType=VARCHAR}, #{con2,jdbcType=VARCHAR}, 
+      #{con3,jdbcType=VARCHAR}, #{con4,jdbcType=VARCHAR}, #{con5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.company.dao.pojo.Station" >
+    insert into station
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="station != null" >
+        station,
+      </if>
+      <if test="stationname != null" >
+        stationname,
+      </if>
+      <if test="pinyin != null" >
+        pinyin,
+      </if>
+      <if test="region != null" >
+        region,
+      </if>
+      <if test="airconditioning != null" >
+        Airconditioning,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="updatatime != null" >
+        updataTime,
+      </if>
+      <if test="creatuser != null" >
+        creatUser,
+      </if>
+      <if test="updatauser != null" >
+        updataUser,
+      </if>
+      <if test="deletetime != null" >
+        deleteTime,
+      </if>
+      <if test="con1 != null" >
+        con1,
+      </if>
+      <if test="con2 != null" >
+        con2,
+      </if>
+      <if test="con3 != null" >
+        con3,
+      </if>
+      <if test="con4 != null" >
+        con4,
+      </if>
+      <if test="con5 != null" >
+        con5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="station != null" >
+        #{station,jdbcType=INTEGER},
+      </if>
+      <if test="stationname != null" >
+        #{stationname,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null" >
+        #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null" >
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="airconditioning != null" >
+        #{airconditioning,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        #{con5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Station" >
+    update station
+    <set >
+      <if test="stationname != null" >
+        stationname = #{stationname,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null" >
+        pinyin = #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null" >
+        region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="airconditioning != null" >
+        Airconditioning = #{airconditioning,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        updataTime = #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        creatUser = #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        updataUser = #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        con1 = #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        con2 = #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        con3 = #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        con4 = #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        con5 = #{con5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where station = #{station,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Station" >
+    update station
+    set stationname = #{stationname,jdbcType=VARCHAR},
+      pinyin = #{pinyin,jdbcType=VARCHAR},
+      region = #{region,jdbcType=VARCHAR},
+      Airconditioning = #{airconditioning,jdbcType=VARCHAR},
+      creatTime = #{creattime,jdbcType=TIMESTAMP},
+      updataTime = #{updatatime,jdbcType=TIMESTAMP},
+      creatUser = #{creatuser,jdbcType=VARCHAR},
+      updataUser = #{updatauser,jdbcType=VARCHAR},
+      deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      con1 = #{con1,jdbcType=VARCHAR},
+      con2 = #{con2,jdbcType=VARCHAR},
+      con3 = #{con3,jdbcType=VARCHAR},
+      con4 = #{con4,jdbcType=VARCHAR},
+      con5 = #{con5,jdbcType=VARCHAR}
+    where station = #{station,jdbcType=INTEGER}
+  </update>
+</mapper>

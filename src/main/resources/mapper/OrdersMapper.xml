@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.OrdersMapper" >
+  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Orders" >
+    <constructor >
+      <idArg column="ordersid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="tkid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="status" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="maketime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="creatTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="updataTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="creatUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="updataUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deleteTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="con1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con4" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con5" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ordersid, tkid, userid, status, maketime, creatTime, updataTime, creatUser, updataUser, 
+    deleteTime, con1, con2, con3, con4, con5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where ordersid = #{ordersid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from orders
+    where ordersid = #{ordersid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.company.dao.pojo.Orders" >
+    insert into orders (ordersid, tkid, userid, 
+      status, maketime, creatTime, 
+      updataTime, creatUser, updataUser, 
+      deleteTime, con1, con2, 
+      con3, con4, con5)
+    values (#{ordersid,jdbcType=INTEGER}, #{tkid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
+      #{status,jdbcType=VARCHAR}, #{maketime,jdbcType=TIMESTAMP}, #{creattime,jdbcType=TIMESTAMP}, 
+      #{updatatime,jdbcType=TIMESTAMP}, #{creatuser,jdbcType=VARCHAR}, #{updatauser,jdbcType=VARCHAR}, 
+      #{deletetime,jdbcType=TIMESTAMP}, #{con1,jdbcType=VARCHAR}, #{con2,jdbcType=VARCHAR}, 
+      #{con3,jdbcType=VARCHAR}, #{con4,jdbcType=VARCHAR}, #{con5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.company.dao.pojo.Orders" >
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ordersid != null" >
+        ordersid,
+      </if>
+      <if test="tkid != null" >
+        tkid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="maketime != null" >
+        maketime,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="updatatime != null" >
+        updataTime,
+      </if>
+      <if test="creatuser != null" >
+        creatUser,
+      </if>
+      <if test="updatauser != null" >
+        updataUser,
+      </if>
+      <if test="deletetime != null" >
+        deleteTime,
+      </if>
+      <if test="con1 != null" >
+        con1,
+      </if>
+      <if test="con2 != null" >
+        con2,
+      </if>
+      <if test="con3 != null" >
+        con3,
+      </if>
+      <if test="con4 != null" >
+        con4,
+      </if>
+      <if test="con5 != null" >
+        con5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ordersid != null" >
+        #{ordersid,jdbcType=INTEGER},
+      </if>
+      <if test="tkid != null" >
+        #{tkid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="maketime != null" >
+        #{maketime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        #{con5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Orders" >
+    update orders
+    <set >
+      <if test="tkid != null" >
+        tkid = #{tkid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="maketime != null" >
+        maketime = #{maketime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        updataTime = #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        creatUser = #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        updataUser = #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        con1 = #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        con2 = #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        con3 = #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        con4 = #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        con5 = #{con5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ordersid = #{ordersid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Orders" >
+    update orders
+    set tkid = #{tkid,jdbcType=INTEGER},
+      userid = #{userid,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      maketime = #{maketime,jdbcType=TIMESTAMP},
+      creatTime = #{creattime,jdbcType=TIMESTAMP},
+      updataTime = #{updatatime,jdbcType=TIMESTAMP},
+      creatUser = #{creatuser,jdbcType=VARCHAR},
+      updataUser = #{updatauser,jdbcType=VARCHAR},
+      deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      con1 = #{con1,jdbcType=VARCHAR},
+      con2 = #{con2,jdbcType=VARCHAR},
+      con3 = #{con3,jdbcType=VARCHAR},
+      con4 = #{con4,jdbcType=VARCHAR},
+      con5 = #{con5,jdbcType=VARCHAR}
+    where ordersid = #{ordersid,jdbcType=INTEGER}
+  </update>
+</mapper>
