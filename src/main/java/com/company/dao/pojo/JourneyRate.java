@@ -6,23 +6,15 @@ import java.util.Date;
 public class JourneyRate {
     private Integer id;
 
-    private Integer journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom;
+    private Integer journeyfrom;
 
-    private Integer journeyto
-journeyto;
+    private Integer journeyto;
 
-    private BigDecimal reducerate
-reducerate;
+    private BigDecimal reducerate;
 
-    private BigDecimal pricerate
-pricerate;
+    private Double pricerate;
 
-    private BigDecimal thisprice
-thisprice;
+    private Double thisprice;
 
     private BigDecimal sumprice;
 
@@ -46,37 +38,13 @@ thisprice;
 
     private String con5;
 
-    public JourneyRate(Integer id, Integer journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom, Integer journeyto
-journeyto, BigDecimal reducerate
-reducerate, BigDecimal pricerate
-pricerate, BigDecimal thisprice
-thisprice, BigDecimal sumprice, Date creattime, Date updatatime, String creatuser, String updatauser, Date deletetime, String con1, String con2, String con3, String con4, String con5) {
+    public JourneyRate(Integer id, Integer journeyfrom, Integer journeyto, BigDecimal reducerate, Double pricerate, Double thisprice, BigDecimal sumprice, Date creattime, Date updatatime, String creatuser, String updatauser, Date deletetime, String con1, String con2, String con3, String con4, String con5) {
         this.id = id;
-        this.journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom = journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom;
-        this.journeyto
-journeyto = journeyto
-journeyto;
-        this.reducerate
-reducerate = reducerate
-reducerate;
-        this.pricerate
-pricerate = pricerate
-pricerate;
-        this.thisprice
-thisprice = thisprice
-thisprice;
+        this.journeyfrom = journeyfrom;
+        this.journeyto = journeyto;
+        this.reducerate = reducerate;
+        this.pricerate = pricerate;
+        this.thisprice = thisprice;
         this.sumprice = sumprice;
         this.creattime = creattime;
         this.updatatime = updatatime;
@@ -102,92 +70,44 @@ thisprice;
         this.id = id;
     }
 
-    public Integer getJourneyfrom
-journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom() {
-        return journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom;
+    public Integer getJourneyfrom() {
+        return journeyfrom;
     }
 
-    public void setJourneyfrom
-journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom(Integer journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom) {
-        this.journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom = journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom
-journeyfrom;
+    public void setJourneyfrom(Integer journeyfrom) {
+        this.journeyfrom = journeyfrom;
     }
 
-    public Integer getJourneyto
-journeyto() {
-        return journeyto
-journeyto;
+    public Integer getJourneyto() {
+        return journeyto;
     }
 
-    public void setJourneyto
-journeyto(Integer journeyto
-journeyto) {
-        this.journeyto
-journeyto = journeyto
-journeyto;
+    public void setJourneyto(Integer journeyto) {
+        this.journeyto = journeyto;
     }
 
-    public BigDecimal getReducerate
-reducerate() {
-        return reducerate
-reducerate;
+    public BigDecimal getReducerate() {
+        return reducerate;
     }
 
-    public void setReducerate
-reducerate(BigDecimal reducerate
-reducerate) {
-        this.reducerate
-reducerate = reducerate
-reducerate;
+    public void setReducerate(BigDecimal reducerate) {
+        this.reducerate = reducerate;
     }
 
-    public BigDecimal getPricerate
-pricerate() {
-        return pricerate
-pricerate;
+    public Double getPricerate() {
+        return pricerate;
     }
 
-    public void setPricerate
-pricerate(BigDecimal pricerate
-pricerate) {
-        this.pricerate
-pricerate = pricerate
-pricerate;
+    public void setPricerate(Double pricerate) {
+        this.pricerate = pricerate;
     }
 
-    public BigDecimal getThisprice
-thisprice() {
-        return thisprice
-thisprice;
+    public Double getThisprice() {
+        return thisprice;
     }
 
-    public void setThisprice
-thisprice(BigDecimal thisprice
-thisprice) {
-        this.thisprice
-thisprice = thisprice
-thisprice;
+    public void setThisprice(Double thisprice) {
+        this.thisprice = thisprice;
     }
 
     public BigDecimal getSumprice() {

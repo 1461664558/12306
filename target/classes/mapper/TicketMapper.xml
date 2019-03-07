@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.TicketMapper" >
+  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Ticket" >
+    <constructor >
+      <idArg column="tkid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="tid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="gnumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="seatnumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="startstation" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="endstation" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="price" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="utype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="uidnumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="saletype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="datailedsales" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="saletime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="status" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="statusmodifier" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="modifystation" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="modifytime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="creatTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="updataTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="creatUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="updataUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="deleteTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="con1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con4" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="con5" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tkid, tid, date, gnumber, seatnumber, type, startstation, endstation, price, name, 
+    utype, uidnumber, saletype, datailedsales, saletime, status, statusmodifier, modifystation, 
+    modifytime, creatTime, updataTime, creatUser, updataUser, deleteTime, con1, con2, 
+    con3, con4, con5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ticket
+    where tkid = #{tkid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ticket
+    where tkid = #{tkid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.company.dao.pojo.Ticket" >
+    insert into ticket (tkid, tid, date, 
+      gnumber, seatnumber, type, 
+      startstation, endstation, price, 
+      name, utype, uidnumber, 
+      saletype, datailedsales, saletime, 
+      status, statusmodifier, modifystation, 
+      modifytime, creatTime, updataTime, 
+      creatUser, updataUser, deleteTime, 
+      con1, con2, con3, con4, 
+      con5)
+    values (#{tkid,jdbcType=INTEGER}, #{tid,jdbcType=VARCHAR}, #{date,jdbcType=TIMESTAMP}, 
+      #{gnumber,jdbcType=VARCHAR}, #{seatnumber,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{startstation,jdbcType=VARCHAR}, #{endstation,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{name,jdbcType=VARCHAR}, #{utype,jdbcType=VARCHAR}, #{uidnumber,jdbcType=VARCHAR}, 
+      #{saletype,jdbcType=VARCHAR}, #{datailedsales,jdbcType=VARCHAR}, #{saletime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=VARCHAR}, #{statusmodifier,jdbcType=VARCHAR}, #{modifystation,jdbcType=VARCHAR}, 
+      #{modifytime,jdbcType=TIMESTAMP}, #{creattime,jdbcType=TIMESTAMP}, #{updatatime,jdbcType=TIMESTAMP}, 
+      #{creatuser,jdbcType=VARCHAR}, #{updatauser,jdbcType=VARCHAR}, #{deletetime,jdbcType=TIMESTAMP}, 
+      #{con1,jdbcType=VARCHAR}, #{con2,jdbcType=VARCHAR}, #{con3,jdbcType=VARCHAR}, #{con4,jdbcType=VARCHAR}, 
+      #{con5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.company.dao.pojo.Ticket" >
+    insert into ticket
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tkid != null" >
+        tkid,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="gnumber != null" >
+        gnumber,
+      </if>
+      <if test="seatnumber != null" >
+        seatnumber,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="startstation != null" >
+        startstation,
+      </if>
+      <if test="endstation != null" >
+        endstation,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="utype != null" >
+        utype,
+      </if>
+      <if test="uidnumber != null" >
+        uidnumber,
+      </if>
+      <if test="saletype != null" >
+        saletype,
+      </if>
+      <if test="datailedsales != null" >
+        datailedsales,
+      </if>
+      <if test="saletime != null" >
+        saletime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="statusmodifier != null" >
+        statusmodifier,
+      </if>
+      <if test="modifystation != null" >
+        modifystation,
+      </if>
+      <if test="modifytime != null" >
+        modifytime,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="updatatime != null" >
+        updataTime,
+      </if>
+      <if test="creatuser != null" >
+        creatUser,
+      </if>
+      <if test="updatauser != null" >
+        updataUser,
+      </if>
+      <if test="deletetime != null" >
+        deleteTime,
+      </if>
+      <if test="con1 != null" >
+        con1,
+      </if>
+      <if test="con2 != null" >
+        con2,
+      </if>
+      <if test="con3 != null" >
+        con3,
+      </if>
+      <if test="con4 != null" >
+        con4,
+      </if>
+      <if test="con5 != null" >
+        con5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tkid != null" >
+        #{tkid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gnumber != null" >
+        #{gnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="seatnumber != null" >
+        #{seatnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="startstation != null" >
+        #{startstation,jdbcType=VARCHAR},
+      </if>
+      <if test="endstation != null" >
+        #{endstation,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="utype != null" >
+        #{utype,jdbcType=VARCHAR},
+      </if>
+      <if test="uidnumber != null" >
+        #{uidnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="saletype != null" >
+        #{saletype,jdbcType=VARCHAR},
+      </if>
+      <if test="datailedsales != null" >
+        #{datailedsales,jdbcType=VARCHAR},
+      </if>
+      <if test="saletime != null" >
+        #{saletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="statusmodifier != null" >
+        #{statusmodifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifystation != null" >
+        #{modifystation,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null" >
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        #{con5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Ticket" >
+    update ticket
+    <set >
+      <if test="tid != null" >
+        tid = #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gnumber != null" >
+        gnumber = #{gnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="seatnumber != null" >
+        seatnumber = #{seatnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="startstation != null" >
+        startstation = #{startstation,jdbcType=VARCHAR},
+      </if>
+      <if test="endstation != null" >
+        endstation = #{endstation,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="utype != null" >
+        utype = #{utype,jdbcType=VARCHAR},
+      </if>
+      <if test="uidnumber != null" >
+        uidnumber = #{uidnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="saletype != null" >
+        saletype = #{saletype,jdbcType=VARCHAR},
+      </if>
+      <if test="datailedsales != null" >
+        datailedsales = #{datailedsales,jdbcType=VARCHAR},
+      </if>
+      <if test="saletime != null" >
+        saletime = #{saletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="statusmodifier != null" >
+        statusmodifier = #{statusmodifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifystation != null" >
+        modifystation = #{modifystation,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null" >
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatatime != null" >
+        updataTime = #{updatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatuser != null" >
+        creatUser = #{creatuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null" >
+        updataUser = #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="con1 != null" >
+        con1 = #{con1,jdbcType=VARCHAR},
+      </if>
+      <if test="con2 != null" >
+        con2 = #{con2,jdbcType=VARCHAR},
+      </if>
+      <if test="con3 != null" >
+        con3 = #{con3,jdbcType=VARCHAR},
+      </if>
+      <if test="con4 != null" >
+        con4 = #{con4,jdbcType=VARCHAR},
+      </if>
+      <if test="con5 != null" >
+        con5 = #{con5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tkid = #{tkid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Ticket" >
+    update ticket
+    set tid = #{tid,jdbcType=VARCHAR},
+      date = #{date,jdbcType=TIMESTAMP},
+      gnumber = #{gnumber,jdbcType=VARCHAR},
+      seatnumber = #{seatnumber,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      startstation = #{startstation,jdbcType=VARCHAR},
+      endstation = #{endstation,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      name = #{name,jdbcType=VARCHAR},
+      utype = #{utype,jdbcType=VARCHAR},
+      uidnumber = #{uidnumber,jdbcType=VARCHAR},
+      saletype = #{saletype,jdbcType=VARCHAR},
+      datailedsales = #{datailedsales,jdbcType=VARCHAR},
+      saletime = #{saletime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      statusmodifier = #{statusmodifier,jdbcType=VARCHAR},
+      modifystation = #{modifystation,jdbcType=VARCHAR},
+      modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      creatTime = #{creattime,jdbcType=TIMESTAMP},
+      updataTime = #{updatatime,jdbcType=TIMESTAMP},
+      creatUser = #{creatuser,jdbcType=VARCHAR},
+      updataUser = #{updatauser,jdbcType=VARCHAR},
+      deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      con1 = #{con1,jdbcType=VARCHAR},
+      con2 = #{con2,jdbcType=VARCHAR},
+      con3 = #{con3,jdbcType=VARCHAR},
+      con4 = #{con4,jdbcType=VARCHAR},
+      con5 = #{con5,jdbcType=VARCHAR}
+    where tkid = #{tkid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.RouteMapper" >
-  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Route" >
+<mapper namespace="com.company.dao.CarriageMapper" >
+  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Carriage" >
     <constructor >
-      <idArg column="routeid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <idArg column="carriageid" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="tid" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="stationname" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="endstation" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="startstation" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="mile" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
-      <arg column="staytime" jdbcType="TIME" javaType="java.util.Date" />
-      <arg column="last" jdbcType="TIME" javaType="java.util.Date" />
+      <arg column="number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="seatnumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="type" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="creatTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="updataTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="creatUser" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -24,59 +21,48 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    routeid, tid, stationname, endstation, startstation, mile, staytime, last, creatTime, 
-    updataTime, creatUser, updataUser, deleteTime, con1, con2, con3, con4, con5
+    carriageid, tid, number, seatnumber, type, creatTime, updataTime, creatUser, updataUser, 
+    deleteTime, con1, con2, con3, con4, con5
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from route
-    where routeid = #{routeid,jdbcType=INTEGER}
+    from carriage
+    where carriageid = #{carriageid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from route
-    where routeid = #{routeid,jdbcType=INTEGER}
+    delete from carriage
+    where carriageid = #{carriageid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.company.dao.pojo.Route" >
-    insert into route (routeid, tid, stationname, 
-      endstation, startstation, mile, 
-      staytime, last, creatTime, 
+  <insert id="insert" parameterType="com.company.dao.pojo.Carriage" >
+    insert into carriage (carriageid, tid, number, 
+      seatnumber, type, creatTime, 
       updataTime, creatUser, updataUser, 
       deleteTime, con1, con2, 
       con3, con4, con5)
-    values (#{routeid,jdbcType=INTEGER}, #{tid,jdbcType=VARCHAR}, #{stationname,jdbcType=VARCHAR}, 
-      #{endstation,jdbcType=TIMESTAMP}, #{startstation,jdbcType=TIMESTAMP}, #{mile,jdbcType=DECIMAL}, 
-      #{staytime,jdbcType=TIME}, #{last,jdbcType=TIME}, #{creattime,jdbcType=TIMESTAMP}, 
+    values (#{carriageid,jdbcType=INTEGER}, #{tid,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, 
+      #{seatnumber,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{creattime,jdbcType=TIMESTAMP}, 
       #{updatatime,jdbcType=TIMESTAMP}, #{creatuser,jdbcType=VARCHAR}, #{updatauser,jdbcType=VARCHAR}, 
       #{deletetime,jdbcType=TIMESTAMP}, #{con1,jdbcType=VARCHAR}, #{con2,jdbcType=VARCHAR}, 
       #{con3,jdbcType=VARCHAR}, #{con4,jdbcType=VARCHAR}, #{con5,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.company.dao.pojo.Route" >
-    insert into route
+  <insert id="insertSelective" parameterType="com.company.dao.pojo.Carriage" >
+    insert into carriage
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="routeid != null" >
-        routeid,
+      <if test="carriageid != null" >
+        carriageid,
       </if>
       <if test="tid != null" >
         tid,
       </if>
-      <if test="stationname != null" >
-        stationname,
+      <if test="number != null" >
+        number,
       </if>
-      <if test="endstation != null" >
-        endstation,
+      <if test="seatnumber != null" >
+        seatnumber,
       </if>
-      <if test="startstation != null" >
-        startstation,
-      </if>
-      <if test="mile != null" >
-        mile,
-      </if>
-      <if test="staytime != null" >
-        staytime,
-      </if>
-      <if test="last != null" >
-        last,
+      <if test="type != null" >
+        type,
       </if>
       <if test="creattime != null" >
         creatTime,
@@ -110,29 +96,20 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="routeid != null" >
-        #{routeid,jdbcType=INTEGER},
+      <if test="carriageid != null" >
+        #{carriageid,jdbcType=INTEGER},
       </if>
       <if test="tid != null" >
         #{tid,jdbcType=VARCHAR},
       </if>
-      <if test="stationname != null" >
-        #{stationname,jdbcType=VARCHAR},
+      <if test="number != null" >
+        #{number,jdbcType=VARCHAR},
       </if>
-      <if test="endstation != null" >
-        #{endstation,jdbcType=TIMESTAMP},
+      <if test="seatnumber != null" >
+        #{seatnumber,jdbcType=VARCHAR},
       </if>
-      <if test="startstation != null" >
-        #{startstation,jdbcType=TIMESTAMP},
-      </if>
-      <if test="mile != null" >
-        #{mile,jdbcType=DECIMAL},
-      </if>
-      <if test="staytime != null" >
-        #{staytime,jdbcType=TIME},
-      </if>
-      <if test="last != null" >
-        #{last,jdbcType=TIME},
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
       </if>
       <if test="creattime != null" >
         #{creattime,jdbcType=TIMESTAMP},
@@ -166,29 +143,20 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Route" >
-    update route
+  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Carriage" >
+    update carriage
     <set >
       <if test="tid != null" >
         tid = #{tid,jdbcType=VARCHAR},
       </if>
-      <if test="stationname != null" >
-        stationname = #{stationname,jdbcType=VARCHAR},
+      <if test="number != null" >
+        number = #{number,jdbcType=VARCHAR},
       </if>
-      <if test="endstation != null" >
-        endstation = #{endstation,jdbcType=TIMESTAMP},
+      <if test="seatnumber != null" >
+        seatnumber = #{seatnumber,jdbcType=VARCHAR},
       </if>
-      <if test="startstation != null" >
-        startstation = #{startstation,jdbcType=TIMESTAMP},
-      </if>
-      <if test="mile != null" >
-        mile = #{mile,jdbcType=DECIMAL},
-      </if>
-      <if test="staytime != null" >
-        staytime = #{staytime,jdbcType=TIME},
-      </if>
-      <if test="last != null" >
-        last = #{last,jdbcType=TIME},
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
       </if>
       <if test="creattime != null" >
         creatTime = #{creattime,jdbcType=TIMESTAMP},
@@ -221,17 +189,14 @@
         con5 = #{con5,jdbcType=VARCHAR},
       </if>
     </set>
-    where routeid = #{routeid,jdbcType=INTEGER}
+    where carriageid = #{carriageid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Route" >
-    update route
+  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Carriage" >
+    update carriage
     set tid = #{tid,jdbcType=VARCHAR},
-      stationname = #{stationname,jdbcType=VARCHAR},
-      endstation = #{endstation,jdbcType=TIMESTAMP},
-      startstation = #{startstation,jdbcType=TIMESTAMP},
-      mile = #{mile,jdbcType=DECIMAL},
-      staytime = #{staytime,jdbcType=TIME},
-      last = #{last,jdbcType=TIME},
+      number = #{number,jdbcType=VARCHAR},
+      seatnumber = #{seatnumber,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
       creatTime = #{creattime,jdbcType=TIMESTAMP},
       updataTime = #{updatatime,jdbcType=TIMESTAMP},
       creatUser = #{creatuser,jdbcType=VARCHAR},
@@ -242,6 +207,6 @@
       con3 = #{con3,jdbcType=VARCHAR},
       con4 = #{con4,jdbcType=VARCHAR},
       con5 = #{con5,jdbcType=VARCHAR}
-    where routeid = #{routeid,jdbcType=INTEGER}
+    where carriageid = #{carriageid,jdbcType=INTEGER}
   </update>
 </mapper>

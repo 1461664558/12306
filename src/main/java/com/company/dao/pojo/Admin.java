@@ -1,24 +1,13 @@
 package com.company.dao.pojo;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
-public class Route {
-    private Integer routeid;
+public class Admin {
+    private Integer adminid;
 
-    private String tid;
+    private String adminname;
 
-    private String stationname;
-
-    private Date endstation;
-
-    private Date startstation;
-
-    private BigDecimal mile;
-
-    private Date staytime;
-
-    private Date last;
+    private String adminpassword;
 
     private Date creattime;
 
@@ -40,15 +29,10 @@ public class Route {
 
     private String con5;
 
-    public Route(Integer routeid, String tid, String stationname, Date endstation, Date startstation, BigDecimal mile, Date staytime, Date last, Date creattime, Date updatatime, String creatuser, String updatauser, Date deletetime, String con1, String con2, String con3, String con4, String con5) {
-        this.routeid = routeid;
-        this.tid = tid;
-        this.stationname = stationname;
-        this.endstation = endstation;
-        this.startstation = startstation;
-        this.mile = mile;
-        this.staytime = staytime;
-        this.last = last;
+    public Admin(Integer adminid, String adminname, String adminpassword, Date creattime, Date updatatime, String creatuser, String updatauser, Date deletetime, String con1, String con2, String con3, String con4, String con5) {
+        this.adminid = adminid;
+        this.adminname = adminname;
+        this.adminpassword = adminpassword;
         this.creattime = creattime;
         this.updatatime = updatatime;
         this.creatuser = creatuser;
@@ -61,72 +45,32 @@ public class Route {
         this.con5 = con5;
     }
 
-    public Route() {
+    public Admin() {
         super();
     }
 
-    public Integer getRouteid() {
-        return routeid;
+    public Integer getAdminid() {
+        return adminid;
     }
 
-    public void setRouteid(Integer routeid) {
-        this.routeid = routeid;
+    public void setAdminid(Integer adminid) {
+        this.adminid = adminid;
     }
 
-    public String getTid() {
-        return tid;
+    public String getAdminname() {
+        return adminname;
     }
 
-    public void setTid(String tid) {
-        this.tid = tid == null ? null : tid.trim();
+    public void setAdminname(String adminname) {
+        this.adminname = adminname == null ? null : adminname.trim();
     }
 
-    public String getStationname() {
-        return stationname;
+    public String getAdminpassword() {
+        return adminpassword;
     }
 
-    public void setStationname(String stationname) {
-        this.stationname = stationname == null ? null : stationname.trim();
-    }
-
-    public Date getEndstation() {
-        return endstation;
-    }
-
-    public void setEndstation(Date endstation) {
-        this.endstation = endstation;
-    }
-
-    public Date getStartstation() {
-        return startstation;
-    }
-
-    public void setStartstation(Date startstation) {
-        this.startstation = startstation;
-    }
-
-    public BigDecimal getMile() {
-        return mile;
-    }
-
-    public void setMile(BigDecimal mile) {
-        this.mile = mile;
-    }
-
-    public Date getStaytime() {
-        return staytime;
-    }
-
-    public void setStaytime(Date staytime) {
-        this.staytime = staytime;
-    }
-
-    public Date getLast() {
-        return last;
-    }
-
-    public void setLast(Date last) {
-        this.last = last;
+    public void setAdminpassword(String adminpassword) {
+        this.adminpassword = adminpassword == null ? null : adminpassword.trim();
     }
 
     public Date getCreattime() {

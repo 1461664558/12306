@@ -99,6 +99,11 @@
         <table tableName="carriage" domainObjectName="Carriage" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>
-
+        <table tableName="intergal" domainObjectName="Intergal" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="admin" domainObjectName="Admin" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
     </context>
 </generatorConfiguration>

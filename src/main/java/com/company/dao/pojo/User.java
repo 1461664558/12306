@@ -47,6 +47,12 @@ public class User {
 
     private String con5;
 
+    public User(String username, String password, String sex) {
+        this.username = username;
+        this.password = password;
+        this.sex = sex;
+    }
+
     public User(Integer userid, String username, String password, String name, String uidnumber, String sex, Date birthday, String address, String tel, String email, Date lastlandingtime, String ustatus, Date creattime, Date updatatime, String creatuser, String updatauser, Date deletetime, String con1, String con2, String con3, String con4, String con5) {
         this.userid = userid;
         this.username = username;
