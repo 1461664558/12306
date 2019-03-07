@@ -1,24 +1,15 @@
 package com.company.dao.pojo;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
-public class Route {
-    private Integer routeid;
+public class Intergal {
+    private Integer intergalid;
 
-    private String tid;
+    private String username;
 
-    private String stationname;
+    private Integer intergal;
 
-    private Date endstation;
-
-    private Date startstation;
-
-    private BigDecimal mile;
-
-    private Date staytime;
-
-    private Date last;
+    private Date gettime;
 
     private Date creattime;
 
@@ -40,15 +31,11 @@ public class Route {
 
     private String con5;
 
-    public Route(Integer routeid, String tid, String stationname, Date endstation, Date startstation, BigDecimal mile, Date staytime, Date last, Date creattime, Date updatatime, String creatuser, String updatauser, Date deletetime, String con1, String con2, String con3, String con4, String con5) {
-        this.routeid = routeid;
-        this.tid = tid;
-        this.stationname = stationname;
-        this.endstation = endstation;
-        this.startstation = startstation;
-        this.mile = mile;
-        this.staytime = staytime;
-        this.last = last;
+    public Intergal(Integer intergalid, String username, Integer intergal, Date gettime, Date creattime, Date updatatime, String creatuser, String updatauser, Date deletetime, String con1, String con2, String con3, String con4, String con5) {
+        this.intergalid = intergalid;
+        this.username = username;
+        this.intergal = intergal;
+        this.gettime = gettime;
         this.creattime = creattime;
         this.updatatime = updatatime;
         this.creatuser = creatuser;
@@ -61,72 +48,40 @@ public class Route {
         this.con5 = con5;
     }
 
-    public Route() {
+    public Intergal() {
         super();
     }
 
-    public Integer getRouteid() {
-        return routeid;
+    public Integer getIntergalid() {
+        return intergalid;
     }
 
-    public void setRouteid(Integer routeid) {
-        this.routeid = routeid;
+    public void setIntergalid(Integer intergalid) {
+        this.intergalid = intergalid;
     }
 
-    public String getTid() {
-        return tid;
+    public String getUsername() {
+        return username;
     }
 
-    public void setTid(String tid) {
-        this.tid = tid == null ? null : tid.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
-    public String getStationname() {
-        return stationname;
+    public Integer getIntergal() {
+        return intergal;
     }
 
-    public void setStationname(String stationname) {
-        this.stationname = stationname == null ? null : stationname.trim();
+    public void setIntergal(Integer intergal) {
+        this.intergal = intergal;
     }
 
-    public Date getEndstation() {
-        return endstation;
+    public Date getGettime() {
+        return gettime;
     }
 
-    public void setEndstation(Date endstation) {
-        this.endstation = endstation;
-    }
-
-    public Date getStartstation() {
-        return startstation;
-    }
-
-    public void setStartstation(Date startstation) {
-        this.startstation = startstation;
-    }
-
-    public BigDecimal getMile() {
-        return mile;
-    }
-
-    public void setMile(BigDecimal mile) {
-        this.mile = mile;
-    }
-
-    public Date getStaytime() {
-        return staytime;
-    }
-
-    public void setStaytime(Date staytime) {
-        this.staytime = staytime;
-    }
-
-    public Date getLast() {
-        return last;
-    }
-
-    public void setLast(Date last) {
-        this.last = last;
+    public void setGettime(Date gettime) {
+        this.gettime = gettime;
     }
 
     public Date getCreattime() {

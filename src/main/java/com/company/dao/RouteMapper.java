@@ -2,6 +2,8 @@ package com.company.dao;
 
 import com.company.dao.pojo.Route;
 
+import java.math.BigDecimal;
+
 public interface RouteMapper {
     int deleteByPrimaryKey(Integer routeid);
 
@@ -14,4 +16,6 @@ public interface RouteMapper {
     int updateByPrimaryKeySelective(Route record);
 
     int updateByPrimaryKey(Route record);
+
+    BigDecimal findMile(String station);
 }

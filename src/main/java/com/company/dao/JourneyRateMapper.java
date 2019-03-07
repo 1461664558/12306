@@ -2,6 +2,8 @@ package com.company.dao;
 
 import com.company.dao.pojo.JourneyRate;
 
+import java.math.BigDecimal;
+
 public interface JourneyRateMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,8 @@ public interface JourneyRateMapper {
     int updateByPrimaryKeySelective(JourneyRate record);
 
     int updateByPrimaryKey(JourneyRate record);
+
+    Double findPricarate(Integer id);
+
+    BigDecimal findSumprice(Integer id);
 }

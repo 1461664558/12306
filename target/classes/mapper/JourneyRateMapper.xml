@@ -238,12 +238,12 @@
     select
     pricerate
     from journeyrate
-    where id = #{id,jdbcType=INTEGER}
+    where id = 1
   </select>
   <select id="findSumprice" resultType="java.math.BigDecimal" parameterType="java.lang.Integer" >
     select
     sumprice
     from journeyrate
-    where id = #{id,jdbcType=INTEGER}
+    where id = 1
   </select>
 </mapper>

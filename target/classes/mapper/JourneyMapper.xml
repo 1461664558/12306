@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.JourneyRateMapper" >
-  <resultMap id="BaseResultMap" type="com.company.dao.pojo.JourneyRate" >
+<mapper namespace="com.company.dao.JourneyMapper" >
+  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Journey" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="journeyfrom" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="journeyto" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="reducerate" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
-      <arg column="pricerate" jdbcType="DOUBLE" javaType="java.lang.Double" />
-      <arg column="thisprice" jdbcType="DOUBLE" javaType="java.lang.Double" />
-      <arg column="sumprice" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="permile" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="number" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="creatTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="updataTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="creatUser" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -23,35 +21,33 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, journeyfrom, journeyto, reducerate, pricerate, thisprice, sumprice, creatTime, 
-    updataTime, creatUser, updataUser, deleteTime, con1, con2, con3, con4, con5
+    id, journeyfrom, journeyto, permile, number, creatTime, updataTime, creatUser, updataUser, 
+    deleteTime, con1, con2, con3, con4, con5
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from journeyrate
+    from journey
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from journeyrate
+    delete from journey
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.company.dao.pojo.JourneyRate" >
-    insert into journeyrate (id, journeyfrom, journeyto, 
-      reducerate, pricerate, thisprice, 
-      sumprice, creatTime, updataTime, 
-      creatUser, updataUser, deleteTime, 
-      con1, con2, con3, con4, 
-      con5)
+  <insert id="insert" parameterType="com.company.dao.pojo.Journey" >
+    insert into journey (id, journeyfrom, journeyto, 
+      permile, number, creatTime, 
+      updataTime, creatUser, updataUser, 
+      deleteTime, con1, con2, 
+      con3, con4, con5)
     values (#{id,jdbcType=INTEGER}, #{journeyfrom,jdbcType=INTEGER}, #{journeyto,jdbcType=INTEGER}, 
-      #{reducerate,jdbcType=DECIMAL}, #{pricerate,jdbcType=DOUBLE}, #{thisprice,jdbcType=DOUBLE}, 
-      #{sumprice,jdbcType=DECIMAL}, #{creattime,jdbcType=TIMESTAMP}, #{updatatime,jdbcType=TIMESTAMP}, 
-      #{creatuser,jdbcType=VARCHAR}, #{updatauser,jdbcType=VARCHAR}, #{deletetime,jdbcType=TIMESTAMP}, 
-      #{con1,jdbcType=VARCHAR}, #{con2,jdbcType=VARCHAR}, #{con3,jdbcType=VARCHAR}, #{con4,jdbcType=VARCHAR}, 
-      #{con5,jdbcType=VARCHAR})
+      #{permile,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, #{creattime,jdbcType=TIMESTAMP}, 
+      #{updatatime,jdbcType=TIMESTAMP}, #{creatuser,jdbcType=VARCHAR}, #{updatauser,jdbcType=VARCHAR}, 
+      #{deletetime,jdbcType=TIMESTAMP}, #{con1,jdbcType=VARCHAR}, #{con2,jdbcType=VARCHAR}, 
+      #{con3,jdbcType=VARCHAR}, #{con4,jdbcType=VARCHAR}, #{con5,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.company.dao.pojo.JourneyRate" >
-    insert into journeyrate
+  <insert id="insertSelective" parameterType="com.company.dao.pojo.Journey" >
+    insert into journey
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -62,17 +58,11 @@
       <if test="journeyto != null" >
         journeyto,
       </if>
-      <if test="reducerate != null" >
-        reducerate,
+      <if test="permile != null" >
+        permile,
       </if>
-      <if test="pricerate != null" >
-        pricerate,
-      </if>
-      <if test="thisprice != null" >
-        thisprice,
-      </if>
-      <if test="sumprice != null" >
-        sumprice,
+      <if test="number != null" >
+        number,
       </if>
       <if test="creattime != null" >
         creatTime,
@@ -115,17 +105,11 @@
       <if test="journeyto != null" >
         #{journeyto,jdbcType=INTEGER},
       </if>
-      <if test="reducerate != null" >
-        #{reducerate,jdbcType=DECIMAL},
+      <if test="permile != null" >
+        #{permile,jdbcType=INTEGER},
       </if>
-      <if test="pricerate != null" >
-        #{pricerate,jdbcType=DOUBLE},
-      </if>
-      <if test="thisprice != null" >
-        #{thisprice,jdbcType=DOUBLE},
-      </if>
-      <if test="sumprice != null" >
-        #{sumprice,jdbcType=DECIMAL},
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
       </if>
       <if test="creattime != null" >
         #{creattime,jdbcType=TIMESTAMP},
@@ -159,8 +143,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.JourneyRate" >
-    update journeyrate
+  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Journey" >
+    update journey
     <set >
       <if test="journeyfrom != null" >
         journeyfrom = #{journeyfrom,jdbcType=INTEGER},
@@ -168,17 +152,11 @@
       <if test="journeyto != null" >
         journeyto = #{journeyto,jdbcType=INTEGER},
       </if>
-      <if test="reducerate != null" >
-        reducerate = #{reducerate,jdbcType=DECIMAL},
+      <if test="permile != null" >
+        permile = #{permile,jdbcType=INTEGER},
       </if>
-      <if test="pricerate != null" >
-        pricerate = #{pricerate,jdbcType=DOUBLE},
-      </if>
-      <if test="thisprice != null" >
-        thisprice = #{thisprice,jdbcType=DOUBLE},
-      </if>
-      <if test="sumprice != null" >
-        sumprice = #{sumprice,jdbcType=DECIMAL},
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
       </if>
       <if test="creattime != null" >
         creatTime = #{creattime,jdbcType=TIMESTAMP},
@@ -213,14 +191,12 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.JourneyRate" >
-    update journeyrate
+  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Journey" >
+    update journey
     set journeyfrom = #{journeyfrom,jdbcType=INTEGER},
       journeyto = #{journeyto,jdbcType=INTEGER},
-      reducerate = #{reducerate,jdbcType=DECIMAL},
-      pricerate = #{pricerate,jdbcType=DOUBLE},
-      thisprice = #{thisprice,jdbcType=DOUBLE},
-      sumprice = #{sumprice,jdbcType=DECIMAL},
+      permile = #{permile,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
       creatTime = #{creattime,jdbcType=TIMESTAMP},
       updataTime = #{updatatime,jdbcType=TIMESTAMP},
       creatUser = #{creatuser,jdbcType=VARCHAR},
@@ -233,17 +209,4 @@
       con5 = #{con5,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
-  <select id="findPricarate" resultType="java.lang.Double" parameterType="java.lang.Integer" >
-    select
-    pricerate
-    from journeyrate
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="findSumprice" resultType="java.math.BigDecimal" parameterType="java.lang.Integer" >
-    select
-    sumprice
-    from journeyrate
-    where id = #{id,jdbcType=INTEGER}
-  </select>
 </mapper>
